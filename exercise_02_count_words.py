@@ -28,4 +28,14 @@ def count_words(filename):
         # archivo contiene: "Hola mundo hola\nmundo python\n"
         count_words("texto.txt") -> {"hola": 2, "mundo": 2, "python": 1}
     """
-    pass  # Reemplazar con tu implementación
+    frecuencia = {}
+    with open(filename, "r") as archivo:
+        contenido = archivo.read()
+        palabras = contenido.split()
+        for palabra in palabras:
+            palabra = palabra.lower()
+            if palabra in frecuencia:
+                frecuencia[palabra] += 1
+            else:
+                frecuencia[palabra] = 1
+    return frecuencia
